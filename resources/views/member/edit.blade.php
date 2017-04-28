@@ -124,8 +124,9 @@
 
 @section('script')
 
-<script src="{{ asset('vendor/adminlte/plugins/jQuery/jquery-2.2.3.min.js') }}"></script>
-<script src="{{ asset('vendor/adminlte/bootstrap/js/bootstrap.min.js') }}"></script>
+<script src="{{ asset('plugins/jQuery/jquery-2.2.3.min.js') }}"></script>
+<script src="{{ asset('bootstrap/js/bootstrap.min.js') }}"></script>
+<script src="dist/js/app.min.js"></script>
  
     <script>
     $(document).on('ready', function() {

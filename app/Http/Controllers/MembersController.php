@@ -5,6 +5,12 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Member;
 use Redirect;
+use Illuminate\Support\Facades\Input;
+use Illuminate\Support\Facades\Validator;
+use Hash;
+use Auth;
+use App\User;
+use Response;
 class MembersController extends Controller
 {
     /**
@@ -242,9 +248,9 @@ class MembersController extends Controller
 		if(Hash::check($data,Auth::user()->password)) {
 			// return 'succes';
 			$user_id = Member::find($id);
-			User::destroy($user_id);
+			User::forceDelete($user_id);
 
-			return $this->response('Member Deleted Successfully.', 201);
+			return Redirect::route('member.index')->with('Member Deleted Successfully.', 201);
 		} else {
 			return $this->errorResponse('Password did not match', 400);
 		}

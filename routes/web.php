@@ -25,8 +25,9 @@ Route::get('admin', function () {
 });
 Route::post('add', ['as' => 'member_register', 'uses' => 'MembersController@store']);
 Route::get('members',['as' => 'members', 'uses' => 'MembersController@show']);
-Route::delete('members/{id}',['as' => 'members.delete', 'uses' => 'MembersController@destroy']);
+Route::post('members/{id}',['as' => 'members.delete', 'uses' => 'MembersController@destroy']);
 Route::get('member/{id}/edit',['as' => 'member.edit', 'uses' => 'MembersController@edit']);
+Route::get('pdfview',array('as'=>'pdfview','uses'=>'HomeController@pdfview'));
 // Members
 
 	Route::get('member',['as' => 'member.index', 'uses' => 'MembersController@index']);

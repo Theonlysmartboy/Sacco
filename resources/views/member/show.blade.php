@@ -5,13 +5,16 @@
             @include('includes.alert')
             <section class="panel">
                 <header class="panel-heading clearfix">
-                  <h1>{{ $title }}</h1>  
-                    
+                   
+                    <span class="pull-left">
+						
+						<a href="{{ route('pdfview',['download'=>'pdf']) }}">Download PDF</a>
+					</span>
                     <span class="pull-right">
                             <a class="btn btn-success btn-sm btn-new-user" href="../public/add">Add Member</a>
                     </span>
                 </header>
-                <div class="panel-body">
+				<div class="panel-body">
                     @if(count($members))
                         <table class="display table table-bordered table-striped" id="example">
                             <thead>
@@ -70,7 +73,7 @@
                     </span>
                     
                     <h3>Provide Your Password</h3>
-                    {{ Form::open(array('route' => array('members'), 'method'=> 'Delete', 'class' => 'deleteForm')) }}
+                    {{ Form::open(array('route' => array('members.delete',$member->id), 'method'=> 'post', 'class' => 'deleteForm')) }}
                     <div class="form-group">
                        
                         <div class="col-md-4">
@@ -187,5 +190,6 @@
                         });
             });// end of delete 
         });
+		
+		
     </script>
-@endsection
